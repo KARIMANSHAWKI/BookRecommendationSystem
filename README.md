@@ -35,6 +35,8 @@ composer install
 php artisan migrate --seed
 ```
 
+## Postman Collection
+
 You Can Access api using postman through this postman collection :
 https://documenter.getpostman.com/view/15241626/2sA3JJ8hfm
 
