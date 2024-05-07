@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+    nginx:
+      build: ./serives/nginx/
+      container_name: nginx-container
+      ports:
+       - "8090:80"
+      volumes:
+         - ./BooksRecommender/:/var/www/html/
+    php:
+      build: ./serives/php/
+      expose:
+       - 9000
+      volumes:
+        - ./BooksRecommender/:/var/www/html/
+    db:
+      image: mariadb
+      ports:
+        - "3366:3306"
+      volumes:
+        - mysql-data:/var/lib/mysql
+      environment:
+        MARIADB_ROOT_PASSWORD: password
+        MARIADB_DATABASE: book_recommendation_system
+        MARIADB_PASSWORD: password
+        MARIADB_USER: root
+volumes:
+  mysql-data:
+
+
+
