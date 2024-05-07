@@ -3,6 +3,7 @@
 namespace App\Domain\Services\Classes;
 
 use App\Domain\Services\Interfaces\IBookService;
+use App\Jobs\NotifyUserAfterSubmitIntervalOnBookJob;
 use App\Models\Book;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Translation\Translator;
@@ -17,6 +18,8 @@ class BookService implements IBookService
             'start_page' => $data['start_page'],
             'end_page' => $data['end_page']
         ]);
+
+        NotifyUserAfterSubmitIntervalOnBookJob::dispatch(auth()->user(), $book->name, $data['start_page'], $data['end_page']);
 
         return trans('message.interval-submitted-successfully');
     }

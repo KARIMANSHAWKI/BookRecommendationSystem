@@ -1,18 +1,18 @@
 version: "3.9"
 services:
     nginx:
-      build: ./serives/nginx/
+      build: services/nginx/
       container_name: nginx-container
       ports:
        - "8090:80"
       volumes:
-         - ./BooksRecommender/:/var/www/html/
+         - ./app/:/var/www/html/
     php:
-      build: ./serives/php/
+      build: services/php/
       expose:
        - 9000
       volumes:
-        - ./BooksRecommender/:/var/www/html/
+        - ./app/:/var/www/html/
     db:
       image: mariadb
       ports:
