@@ -1,0 +1,14 @@
+{# This is a basic example template for listing events. #}
+<div class="events-list">
+  <div style="margin-bottom: 10px">
+    <h3 style="display: inline-block">{{ event.title }}</h3>
+  </div>
+  <br>
+  <br>
+
+  <div style="border: 1px solid grey; padding: 20px; margin-bottom: 8px">
+    <p>Start Time: {{ event.start_time }}</p>
+    <p>End Time: {{ event.end_time }}</p>
+    <p>Description: {{ event.description }}</p>
+  </div>
+</div>

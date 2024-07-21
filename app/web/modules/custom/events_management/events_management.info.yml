@@ -1,0 +1,11 @@
+name: 'Events Management'
+type: module
+description: 'Mange and display events for end user.'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:node
+  - drupal:field
+  - drupal:datetime
+  - drupal:image
+

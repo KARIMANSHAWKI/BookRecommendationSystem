@@ -1,0 +1,16 @@
+<?php
+function events_management_theme($existing, $type, $theme, $path): array
+{
+  return [
+    'events_listing' => [
+      'variables' => ['events' => null, 'pager' => NULL],
+      'path' => $path . '/templates',
+      'template' => 'events-listing',
+    ],
+    'event_details' => [
+      'variables' => ['event' => null],
+      'path' => $path . '/templates',
+      'template' => 'event-details',
+    ]
+  ];
+}

@@ -1,0 +1,33 @@
+<div class="events-list">
+  <div style="margin-bottom: 10px">
+    <h2 style="display: inline-block; float: left">Upcoming Events</h2>
+    <button style="display: inline-block;border: none;float: right; background-color: #42a877; padding: 12px">
+      <a style="text-decoration: none; color: white; font-size: 15px"
+         href="{{ path('events_management.create') }}">Add Event</a>
+    </button>
+  </div>
+  <br>
+  <br>
+  <div style="clear: both"></div>
+
+  {% for event in events %}
+    <div style="border: 1px solid grey; padding: 5px; margin-bottom: 8px">
+      <h3 style="display: inline-block">{{ event.title }}</h3>
+      <button style="display: inline-block;border: none; background-color: #353641 ; padding: 7px">
+        <a style="text-decoration: none; color: white; font-size: 11px"
+           href="{{ path('events_management.update', {'nid':event.id}) }}">Edit</a>
+      </button>
+
+      <button style="display: inline-block;border: none; background-color: #e34f4f; padding: 7px">
+        <a style="text-decoration: none; color: white; font-size: 11px"
+           href="{{ path('events_management.delete', {'nid': event.id}) }}">Remove</a>
+      </button>
+
+      <p>Start Time: {{ event.start_time }}</p>
+      <p>End Time: {{ event.end_time }}</p>
+      <p>Description: {{ event.description }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+{{ pager }}

@@ -1,0 +1,55 @@
+events_management.config_page:
+  path: '/admin/config/event-api'
+  defaults:
+    _form: '\Drupal\events_management\Form\ConfigAPIForm'
+  requirements:
+    _permission: 'access content'
+
+events_management.list:
+  path: '/events'
+  defaults:
+    _controller: '\Drupal\events_management\Controller\EventsManagementController::listEvents'
+    _title: 'Manage Events'
+  requirements:
+    _permission: 'access content'
+
+events_management.create:
+  path: '/events/create'
+  defaults:
+    _form: '\Drupal\events_management\Form\EventCreateForm'
+    _title: 'Create Event'
+  requirements:
+    _permission: 'access content'
+
+events_management.update:
+  path: '/events/{nid}/edit'
+  defaults:
+    _form: '\Drupal\events_management\Form\EventUpdateForm'
+    _title: 'Update Event'
+  requirements:
+    _permission: 'access content'
+
+events_management.delete:
+  path: '/events/{nid}/delete'
+  defaults:
+    _controller: '\Drupal\events_management\Controller\EventsManagementController::deleteEvent'
+    _title: 'Delete Event'
+  requirements:
+    _permission: 'access content'
+
+events_management.guest.list:
+  path: '/events'
+  defaults:
+    _controller: '\Drupal\events_management\Controller\EventsManagementController::listEvents'
+    _title: 'Manage Events'
+  requirements:
+    _permission: 'access content'
+
+events_management.guest.show:
+  path: '/events/{nid}/show'
+  defaults:
+    _controller: '\Drupal\events_management\Controller\EventsManagementController::showEvent'
+    _title: 'Event Details'
+  requirements:
+    _permission: 'access content'
+

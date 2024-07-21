@@ -1,0 +1,70 @@
+<?php
+  function events_management_schema()
+  {
+    $schema['events'] = [
+      'fields' => [
+        'id' => [
+          'type' => 'serial',
+          'not null' => TRUE,
+        ],
+        'title' => [
+          'type' => 'varchar',
+          'length' => 128,
+          'not null' => TRUE,
+          'default' => '',
+        ],
+        'description' => [
+          'type' => 'text',
+          'not null' => TRUE,
+        ],
+        'image' => [
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ],
+        'start_time' => [
+           'type' => 'varchar',
+           'length' => 255,
+          'not null' => TRUE,
+          'not null' => TRUE,
+        ],
+        'end_time' => [
+           'type' => 'varchar',
+           'length' => 255,
+          'not null' => TRUE,
+        ],
+        'category' => [
+          'type' => 'varchar',
+          'length' => 128,
+          'not null' => TRUE,
+        ],
+      ],
+      'primary key' => ['id'],
+    ];
+
+    $schema['events_management_log'] = [
+      'fields' => [
+        'id' => [
+          'type' => 'serial',
+          'not null' => TRUE,
+        ],
+        'events_per_page' => [
+          'type' => 'int',
+          'not null' => TRUE,
+        ],
+        'show_past_events' => [
+          'type' => 'int',
+          'not null' => TRUE,
+        ],
+        'updated_at'=>[
+            'type' => 'varchar',
+            'length' => 255,
+            'not null' => TRUE,
+            'not null' => TRUE,
+        ]
+      ],
+      'primary key' => ['id'],
+    ];
+
+    return $schema;
+  }

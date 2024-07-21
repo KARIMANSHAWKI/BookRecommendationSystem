@@ -4,7 +4,7 @@ services:
       build: services/nginx/
       container_name: nginx-container
       ports:
-       - "8090:80"
+       - "8080:80"
       volumes:
          - ./app/:/var/www/html/
     php:
@@ -16,12 +16,12 @@ services:
     db:
       image: mariadb
       ports:
-        - "3366:3306"
+        - "3266:3306"
       volumes:
         - mysql-data:/var/lib/mysql
       environment:
         MARIADB_ROOT_PASSWORD: password
-        MARIADB_DATABASE: book_recommendation_system
+        MARIADB_DATABASE: drupaldb
         MARIADB_PASSWORD: password
         MARIADB_USER: root
 volumes:
