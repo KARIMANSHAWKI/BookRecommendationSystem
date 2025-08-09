@@ -241,6 +241,7 @@
       <path value="$PROJECT_DIR$/app/vendor/league/commonmark" />
       <path value="$PROJECT_DIR$/app/vendor/nikic/php-parser" />
       <path value="$PROJECT_DIR$/app/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/app/vendor/spatie/laravel-permission" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
