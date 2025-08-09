@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="book_recommendation_system@db" uuid="0aa35ba2-9b26-4966-807e-5d191de9e668">
+    <data-source source="LOCAL" name="book_recommendation_system@localhost" uuid="48fbe0e5-a8f3-4f21-b719-043c62757ab4">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://db:3306/book_recommendation_system</jdbc-url>
+      <jdbc-url>jdbc:mariadb://localhost:3366/book_recommendation_system</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="database.introspection.mysql.dbe5060" value="true" />
+      </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

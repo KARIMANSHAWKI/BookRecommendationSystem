@@ -5,23 +5,15 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserResource extends JsonResource
+class UserResource  extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
-     */
+
     public function toArray(Request $request): array
     {
-	    return [
-		    'id'        => $this->id,
-		    'name'      => $this->name,
-		    'email'     => $this->email,
-		    'phone'     => $this->phone,
-		    'image_url' => $this->image ? asset("storage{$this->image}") : null,
-		    'created_at'=> $this->created_at->toDateTimeString(),
-		    'updated_at'=> $this->updated_at->toDateTimeString(),
-	    ];
+        return [
+            'book_id' => $this['book_id'],
+            'book_name' => $this['book_name'],
+            'num_of_read_pages' => $this['num_of_read_pages']
+        ];
     }
 }

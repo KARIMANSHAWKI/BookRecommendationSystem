@@ -18,12 +18,6 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        \App\Events\BookCreated::class => [
-            \App\Listeners\EmailSectionManagersAboutNewBook::class,
-        ],
-        \App\Events\BookSectionAssigned::class => [
-            \App\Listeners\EmailPublisherBookAssigned::class,
-        ],
     ];
 
     /**

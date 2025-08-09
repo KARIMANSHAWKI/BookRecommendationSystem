@@ -127,9 +127,7 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/dflydev/dot-access-data" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/doctrine/inflector" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/doctrine/lexer" />
-      <excludeFolder url="file://$MODULE_DIR$/app/vendor/dragonmantank/cron-expression" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/egulias/email-validator" />
-      <excludeFolder url="file://$MODULE_DIR$/app/vendor/fakerphp/faker" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/filp/whoops" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/fruitcake/php-cors" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/graham-campbell/result-type" />
@@ -215,7 +213,6 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/polyfill-intl-idn" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/polyfill-intl-normalizer" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/polyfill-mbstring" />
-      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/polyfill-php72" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/polyfill-php80" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/polyfill-php83" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/polyfill-uuid" />
@@ -233,7 +230,27 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/brianium/paratest" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/doctrine/deprecations" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/fidry/cpu-core-counter" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/jean85/pretty-package-versions" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/pestphp/pest" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/pestphp/pest-plugin" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/pestphp/pest-plugin-arch" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/phpdocumentor/reflection-common" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/phpdocumentor/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/phpdocumentor/type-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/phpstan/phpdoc-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/spatie/error-solutions" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/spatie/laravel-permission" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/ta-tikoma/phpunit-architecture-test" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/dragonmantank/cron-expression" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/fakerphp/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/league/uri" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/league/uri-interfaces" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/pestphp/pest-plugin-mutate" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/staabm/side-effects-detector" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/clock" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

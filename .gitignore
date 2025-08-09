@@ -17,3 +17,5 @@ app/yarn-error.log
 app/.fleet
 app/.idea
 app/.vscode
+
+*:Zone.Identifier
