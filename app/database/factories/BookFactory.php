@@ -22,6 +22,9 @@ class BookFactory extends Factory
             'name' => Str::random(20),
             'description' => Str::random(100),
             'number_of_pages' => rand(1,100),
+            'cover' => null,
+            'section_id' => null,
+            'created_by' => null,
         ];
     }
 }

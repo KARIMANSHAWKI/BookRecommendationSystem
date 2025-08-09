@@ -198,5 +198,13 @@ return [
          */
 
         'store' => 'default',
+        /*
+     * When using HasRoles/HasPermissions, these are the guards that
+     * will be accepted. You can add 'sanctum' here:
+     */
+        'guards' => [
+            'web',
+            'sanctum',
+        ],
     ],
 ];
