@@ -18,6 +18,7 @@ class SectionManagementController extends Controller
 
     public function index(): AnonymousResourceCollection
     {
+        $this->authorize('view sections');
         $sections = $this->sectionManagementService->list(request('per_page', 15));
         return SectionResource::collection($sections)->additional(['meta' => [
             'current_page' => $sections->currentPage(),
@@ -28,6 +29,8 @@ class SectionManagementController extends Controller
 
     public function show(Section $section): SectionResource
     {
+        $this->authorize('view sections');
+
         return SectionResource::make($this->sectionManagementService->get($section));
     }
 
@@ -44,6 +47,7 @@ class SectionManagementController extends Controller
 
     public function destroy(Section $section): JsonResponse
     {
+        $this->authorize('delete sections', $section);
         $this->sectionManagementService->delete($section);
         return response()->json(null, 204);
     }

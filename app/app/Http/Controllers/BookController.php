@@ -63,9 +63,12 @@ class BookController extends Controller
         return BookResource::make();
     }
 
-    public function destroy($bookId): JsonResponse
+    public function destroy(Book $book): JsonResponse
     {
-        $this->bookService->delete($bookId);
+        // checks Spatie permission "delete books" (via Gate integration)
+        $this->authorize('delete books', $book); // model arg optional here
+
+        $this->bookService->delete($book->id);
 
         return apiResponse(message: trans('message.deleted'));
     }
