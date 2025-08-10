@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Jobs;
 
 use App\Mails\NewBookAddedToAssignMail;
@@ -13,7 +14,10 @@ use Illuminate\Support\Facades\Mail;
 
 class NotifySectionManagersAboutNewBookJob implements ShouldQueue
 {
-   use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+   use Dispatchable;
+   use InteractsWithQueue;
+   use Queueable;
+   use SerializesModels;
 
    public function __construct(
        public User $publisher,
@@ -23,10 +27,12 @@ class NotifySectionManagersAboutNewBookJob implements ShouldQueue
     public function handle(): void
     {
         // stream recipients to avoid loading all into memory
-        User::role('section_manager')->cursor()->each(function ($manager) {
-            Mail::to($manager->email)->queue(
-                new NewBookAddedToAssignMail($this->publisher, $this->book)
-            );
+        User::role('section_manager')
+            ->cursor()
+            ->each(function ($manager): void{
+              Mail::to($manager->email)->queue(
+                  new NewBookAddedToAssignMail($this->publisher, $this->book)
+              );
         });
     }
 }

@@ -18,13 +18,11 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class BookController extends Controller
 {
-
     public function __construct(
         private readonly IBookService $bookService
     )
     {
     }
-
 
     public function index(): AnonymousResourceCollection
     {

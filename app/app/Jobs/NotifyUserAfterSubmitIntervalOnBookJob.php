@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Mail;
 
 class NotifyUserAfterSubmitIntervalOnBookJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
 
     public function __construct(
@@ -28,6 +31,13 @@ class NotifyUserAfterSubmitIntervalOnBookJob implements ShouldQueue
 
     public function handle()
     {
-        Mail::to($this->userData['email'])->send(new NotifyUserAfterSubmitIntervalOnBookMail($this->userData, $this->bookName, $this->startPage, $this->endPage));
+        Mail::to($this->userData->email)->send(
+            new NotifyUserAfterSubmitIntervalOnBookMail(
+                $this->userData,
+                $this->bookName,
+                $this->startPage,
+                $this->endPage
+            )
+        );
     }
 }

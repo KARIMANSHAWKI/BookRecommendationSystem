@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Mails;
 
 use App\Models\Book;
@@ -9,12 +10,14 @@ use Illuminate\Queue\SerializesModels;
 
 class NewBookAddedToAssignMail extends Mailable
 {
-   use Queueable, SerializesModels;
-
+   use Queueable;
+   use SerializesModels;
    public function __construct(
         public User $publisher,
         public Book $book
-   ) {}
+   )
+   {
+   }
 
    public function build()
    {

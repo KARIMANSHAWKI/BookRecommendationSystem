@@ -12,11 +12,9 @@ use Throwable;
 
 class AuthService implements IAuthService
 {
-
     public function __construct(protected IUserRepository $userRepository)
     {
     }
-
     /**
      * @throws Throwable
      */
@@ -34,7 +32,6 @@ class AuthService implements IAuthService
 
         return $this->generateToken($user);
     }
-
 
     private function generateToken($user)
     {

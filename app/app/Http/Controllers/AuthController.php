@@ -10,7 +10,6 @@ use Illuminate\Http\JsonResponse;
 
 class AuthController extends Controller
 {
-
     public function __construct(
         private readonly IAuthService $authService,
     )
@@ -42,5 +41,4 @@ class AuthController extends Controller
             message: trans('message.register-success')
         );
     }
-
 }

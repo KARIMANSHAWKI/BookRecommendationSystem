@@ -2,6 +2,8 @@
 
 namespace App\Events;
 
+use App\Models\Book;
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -12,14 +14,15 @@ use Illuminate\Queue\SerializesModels;
 
 class BookSectionAssigned
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
 
     /**
      * Create a new event instance.
      */
-    public function __construct()
+    public function __construct(public Book $book, public User $assignedBy)
     {
-        //
     }
 
     /**

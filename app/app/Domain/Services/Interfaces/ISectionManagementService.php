@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Domain\Services\Interfaces;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;

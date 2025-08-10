@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Domain\Services\Classes;
 
 use App\Domain\Services\Interfaces\ISectionManagementService;

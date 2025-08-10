@@ -68,7 +68,6 @@ class BookService extends AbstractService implements IBookService
         ]);
 
         return $this->parseResponse($response->json());
-
     }
 
     private function parseResponse(array $response): array

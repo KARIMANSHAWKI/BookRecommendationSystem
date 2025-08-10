@@ -6,5 +6,4 @@ use App\Domain\Repositories\Interfaces\IUserRepository;
 
 class UserRepository extends BaseRepository implements IUserRepository
 {
-
 }
