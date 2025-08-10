@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\BookCreated;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,6 +11,12 @@ class Book extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'number_of_pages', 'cover', 'description','section_id', 'created_by'];
+
+    protected $with = ['section'];
+
+    protected $dispatchesEvents = [
+        'saved' => BookCreated::class,
+    ];
 
     public function users()
     {

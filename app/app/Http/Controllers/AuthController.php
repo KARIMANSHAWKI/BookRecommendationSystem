@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Domain\DTOs\UserDTO;
 use App\Domain\Services\Interfaces\IAuthService;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
@@ -18,9 +19,11 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request): JsonResponse
     {
+        $token = $this->authService->login($request->validated());
+
         return apiResponse(
             data: [
-                'token' => $this->authService->login($request->validated())
+                'token' => $token
             ],
             message: trans('message.login-success')
         );
@@ -29,9 +32,12 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request): JsonResponse
     {
+        $requestData = UserDTO::fromRequest($request->validated());
+        $token = $this->authService->register($requestData);
+
         return apiResponse(
             data: [
-                'token' => $this->authService->register($request->validated())
+                'token' => $token
             ],
             message: trans('message.register-success')
         );
