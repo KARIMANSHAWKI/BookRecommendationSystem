@@ -18,5 +18,7 @@ app/.fleet
 app/.idea
 app/.vscode
 
+node_modules/
+
 *:Zone.Identifier
 *~
