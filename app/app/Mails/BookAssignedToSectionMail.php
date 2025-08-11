@@ -14,7 +14,7 @@ class BookAssignedToSectionMail extends Mailable
 
     public function __construct(public Book $book) {}
 
-    public function build()
+    public function build(): static
     {
             return $this->from(config('mail.from.address'), config('mail.from.name'))
                 ->subject('Congratulations — your book has been added to a section')

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Domain\DTOs\BookDTO;
 use App\Domain\DTOs\BookIntervalDTO;
+use App\Domain\Services\Interfaces\IBookManagementService;
 use App\Domain\Services\Interfaces\IBookService;
 use App\Http\Requests\AssignBookSectionRequest;
 use App\Http\Requests\BookIntervalSubmitRequest;
@@ -47,6 +48,7 @@ class BookController extends Controller
 
     public function store(BookStoreRequest $request): JsonResponse
     {
+        /** @var array<string,mixed> $requestData */
         $requestData = (array)BookDTO::fromRequest($request->validated());
         $this->bookService->create($requestData);
 
@@ -55,13 +57,14 @@ class BookController extends Controller
 
     public function update(BookUpdateRequest $request, int $bookId): BookResource
     {
-        $requestData = array_filter((array)BookDTO::fromRequest($request->validated()));
+        /** @var array<string,mixed> $requestData */
+        $requestData = array_filter((array)BookDTO::fromRequest($request->validated()), static fn ($v) => $v !== null);
         $this->bookService->update($bookId, $requestData);
 
         return BookResource::make();
     }
 
-    public function destroy($bookId): JsonResponse
+    public function destroy(int $bookId): JsonResponse
     {
         $this->authorize('delete books');
 
@@ -79,7 +82,10 @@ class BookController extends Controller
 
     public function submitUserReadingInterval(BookIntervalSubmitRequest $request): JsonResponse
     {
+        /** @var BookIntervalDTO $requestData */
         $requestData = BookIntervalDTO::fromRequest($request->validated());
+        // (The inline @var helps PHPStan recognize the static return as BookIntervalDTO)
+
         $message = $this->bookService->submitUserReadingInterval($requestData);
 
         return apiResponse(message: $message);

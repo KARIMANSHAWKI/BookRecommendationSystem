@@ -31,6 +31,7 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request): JsonResponse
     {
+        /** @var \App\Domain\DTOs\UserDTO $requestData */
         $requestData = UserDTO::fromRequest($request->validated());
         $token = $this->authService->register($requestData);
 

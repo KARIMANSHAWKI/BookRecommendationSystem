@@ -19,7 +19,7 @@ class NewBookAddedToAssignMail extends Mailable
    {
    }
 
-   public function build()
+   public function build(): static
    {
       return $this->from(config('mail.from.address'), config('mail.from.name'))
           ->subject('New book added — assign to a section?')

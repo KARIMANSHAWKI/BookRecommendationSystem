@@ -29,7 +29,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function show($userId): UserResource
+    public function show(int $userId): UserResource
     {
         $userData = $this->userService->get($userId);
 
@@ -44,7 +44,7 @@ class UserController extends Controller
         return response()->json(['data' => UserResource::make($user)], 201);
     }
 
-    public function update(UpdateUserRequest $request, $userId): JsonResponse
+    public function update(UpdateUserRequest $request,int $userId): JsonResponse
     {
         $userData = array_filter((array)UserDTO::fromRequest($request->validated()));
         $user = $this->userService->update($userId, $userData);
@@ -52,7 +52,7 @@ class UserController extends Controller
         return response()->json(['data' => UserResource::make($user)]);
     }
 
-    public function destroy($userId): JsonResponse
+    public function destroy(int $userId): JsonResponse
     {
         $this->userService->delete($userId);
 

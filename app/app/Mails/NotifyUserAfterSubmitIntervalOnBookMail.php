@@ -26,9 +26,9 @@ class NotifyUserAfterSubmitIntervalOnBookMail extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(): static
     {
-        return $this->from(env('MAIL_USERNAME'))
+        return $this->from(config('mail.from.address'), config('mail.from.name'))
             ->subject('Submission Of Reading Interval')
             ->markdown('mails.submission-reading-interval')
             ->with([

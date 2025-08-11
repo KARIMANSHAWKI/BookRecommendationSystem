@@ -2,6 +2,10 @@
 
 use App\Models\Book;
 use App\Models\User;
+use Tests\TestCase;
+use function Pest\Laravel\get;
+
+uses(TestCase::class);
 
 it('returns the most popular five books', function () {
     $bookOne = Book::factory()->create();
@@ -27,7 +31,7 @@ it('returns the most popular five books', function () {
         'end_page' => 120,
     ]);
 
-    $response = $this->get(route('books.get-recommended-books'));
+    $response = get(route('books.get-recommended-books'));
 
     $response
         ->assertStatus(200)

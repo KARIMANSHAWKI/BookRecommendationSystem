@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
+use Tests\TestCase;
+use function Pest\Laravel\get;
 
+uses(TestCase::class);
 it('allows a user to search in google books', function () {
 
     // Fake the HTTP request
@@ -11,7 +14,7 @@ it('allows a user to search in google books', function () {
         Config::get('search_integration.google_books_url') . '*' => Http::response(getFileContent('mock/search/response_200.json'), 200)
     ]);
 
-    $response = $this->get(route('books.google.search', ['search_key' => Str::random(5)]));
+    $response = get(route('books.google.search', ['search_key' => Str::random(5)]));
 
     expect($response->status())->toBe(200)
         ->and($response->json())
@@ -27,7 +30,7 @@ it('test search empty response', function () {
         Config::get('search_integration.google_books_url') . '*' => Http::response(getFileContent('mock/search/empty_response.json'), 200)
     ]);
 
-    $response = $this->get(route('books.google.search', ['search_key' => Str::random(5)]));
+    $response = get(route('books.google.search', ['search_key' => Str::random(5)]));
 
     expect($response->status())->toBe(200)
         ->and($response->json())

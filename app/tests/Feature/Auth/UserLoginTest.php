@@ -2,13 +2,16 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Tests\TestCase;
+use function Pest\Laravel\post;
 
+uses(TestCase::class);
 it('allows a user to login', function () {
     $user = User::factory()->create([
         'password' => Hash::make('password')
     ]);
 
-    $response = $this->post(route('auth.login'), [
+    $response = post(route('auth.login'), [
         'email' => $user->email,
         'password' => 'password'
     ]);
@@ -28,7 +31,7 @@ it('throws an exception if credentials are not valid', function () {
         'password' => Hash::make('password')
     ]);
 
-    $response = $this->post(route('auth.login'), [
+    $response = post(route('auth.login'), [
         'email' => $user->email,
         'password' => 'abcs'
     ], [

@@ -18,7 +18,7 @@ it('builds the NotifyUserAfterSubmitIntervalOnBookMail correctly', function () {
 
     // Assert sender
     expect($mailable->from[0]['address'])
-        ->toBe(env('MAIL_USERNAME'))
+        ->toBe(config('mail.from.address'), config('mail.from.name'))
         ->and($mailable->subject)
         ->toBe('Submission Of Reading Interval')
         ->and($mailable->markdown)
