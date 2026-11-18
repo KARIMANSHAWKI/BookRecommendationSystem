@@ -24,7 +24,7 @@ Route::name('auth.')->prefix('auth')->controller(AuthController::class)->group(f
 });
 
 Route::name('books.')->prefix('books')->controller(BookController::class)->group(function () {
-    Route::get('/', 'index')->name('index');
+    Route::get('/', 'index')->middleware('auth:sanctum')->name('index');
     Route::get('/{book}', 'show')->name('show');
     Route::get('/get-recommended-books', 'getMostRecommendedFiveBooks')->name('get-recommended-books');
     Route::get('/google/search/{search_key}', 'searchInGoogleBooks')->name('google.search');
