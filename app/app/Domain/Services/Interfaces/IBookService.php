@@ -7,6 +7,8 @@ use App\Models\Book;
 
 interface IBookService
 {
+    public function searchBooks(?string $search, int $perPage, int $page): \Illuminate\Contracts\Pagination\LengthAwarePaginator;
+
     public function submitUserReadingInterval(BookIntervalDTO $data);
 
     public function getMostRecommendedFiveBooks();

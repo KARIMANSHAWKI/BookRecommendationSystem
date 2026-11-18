@@ -21,6 +21,11 @@ class BookService extends AbstractService implements IBookService
         parent::__construct(resolve(IBookRepository::class));
     }
 
+    public function searchBooks(?string $search, int $perPage, int $page): \Illuminate\Contracts\Pagination\LengthAwarePaginator
+    {
+        return $this->repository->search($search, $perPage, $page);
+    }
+
     public function submitUserReadingInterval(BookIntervalDTO $data): \Illuminate\Foundation\Application|array|string|Translator|Application|null
     {
         $book = $this->repository->find($data->book_id);
