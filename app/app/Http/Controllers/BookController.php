@@ -9,6 +9,7 @@ use App\Domain\Services\Interfaces\IBookService;
 use App\Http\Requests\AssignBookSectionRequest;
 use App\Http\Requests\BookIntervalSubmitRequest;
 use App\Http\Requests\BookStoreRequest;
+use App\Http\Requests\BookListRequest;
 use App\Http\Requests\BookUpdateRequest;
 use App\Http\Resources\BookResource;
 use App\Http\Resources\GoogleBooksResource;
@@ -25,18 +26,19 @@ class BookController extends Controller
     {
     }
 
-    public function index(): AnonymousResourceCollection
+    public function index(BookListRequest $request): AnonymousResourceCollection
     {
-        $books = $this->bookService->list(request('per_page', 15));
+        $data = $request->validated();
 
-        return BookResource::collection($books)
-            ->additional([
-                'meta' => [
-                    'current_page' => $books->currentPage(),
-                    'last_page' => $books->lastPage(),
-                    'total' => $books->total(),
-                ]
-            ]);
+        $books = $this->bookService->searchBooks(
+            $data['search'] ?? null,
+            (int) ($data['per_page'] ?? 15),
+            (int) ($data['page'] ?? 1),
+        );
+
+        $books->appends(\Illuminate\Support\Arr::only($data, ['search', 'per_page']));
+
+        return BookResource::collection($books);
     }
 
     public function show(int $bookId): BookResource
