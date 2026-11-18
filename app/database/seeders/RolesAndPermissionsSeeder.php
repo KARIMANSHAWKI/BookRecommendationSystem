@@ -16,6 +16,7 @@ class RolesAndPermissionsSeeder extends Seeder
         $guard = 'web';
 
         // create permissions
+        Permission::firstOrCreate(['name' => 'view books', 'guard_name' => $guard]);
         Permission::firstOrCreate(['name' => 'manage users','guard_name' => $guard]);
         Permission::firstOrCreate(['name' => 'edit books','guard_name' => $guard]);
         Permission::firstOrCreate(['name' => 'delete books','guard_name'=>$guard]);
@@ -36,10 +37,10 @@ class RolesAndPermissionsSeeder extends Seeder
         $publisher = Role::firstOrCreate(['name' => 'publisher', 'guard_name' => $guard]);
         $section_manager=Role::firstOrCreate(['name'=>'section_manager','guard_name'=>$guard]);
 
-        $publisher->syncPermissions(['create books']);
+        $publisher->syncPermissions(['create books', 'view books']);
         $admin->syncPermissions(Permission::where('guard_name',$guard)->get());
-        $section_manager->syncPermissions(['assign books','view sections','create sections', 'edit sections','delete sections']);
+        $section_manager->syncPermissions(['view books','assign books','view sections','create sections', 'edit sections','delete sections']);
 
-        Role::firstOrCreate(['name' => 'user','guard_name' => $guard]);
+        Role::firstOrCreate(['name' => 'user','guard_name' => $guard])->givePermissionTo('view books');
     }
 }
